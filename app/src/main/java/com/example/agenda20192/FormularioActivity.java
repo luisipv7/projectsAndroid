@@ -3,6 +3,8 @@ package com.example.agenda20192;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -32,6 +34,19 @@ public class FormularioActivity extends AppCompatActivity {
         cbCasado = (CheckBox) findViewById(R.id.cbCasado);
         btnSalvar = (Button)findViewById(R.id.btnSalvar);
 
+        carregarCidades(0);
+
+        spEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                carregarCidades(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
     }
 
